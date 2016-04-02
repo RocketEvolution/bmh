@@ -1,0 +1,359 @@
+@import "include";
+
+
+// DEFAULT
+body {
+	@extend %nospace;
+	@include transition();
+	color: $gray;
+	background: url("../images/background.jpg") repeat-x top center #4d4d4d;
+	background-attachment: fixed;
+	font-size: 15px;
+	line-height: 1.5em;
+	width: 100%;
+	overflow-x: hidden;
+}
+a {
+	@include transition(200ms);
+	color: $blue;
+	text-decoration: none;
+	&:hover { color: $darkyellow; text-decoration: none; }
+	&:active { text-decoration: none; }
+}
+ul,li { @extend %nospace; list-style: none; }
+h1,h2,h3,h4,h5,h6 { @extend %nospace; font-weight: normal; line-height: 1.4em; }
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
+
+
+
+// GLOBAL
+.textshadow-lg { @include textshadow(1px 1px 15px, 0.5); }
+.textshadow-md { @include textshadow(1px 1px 10px, 0.5); }
+.textshadow-sm { @include textshadow(1px 1px 5px, 0.5); }
+.textshadow-xs { @include textshadow(1px 1px 3px, 0.5); }
+.shadow-lg { @include shadow(0 0 15px 15px, 0.1); }
+.shadow-md { @include shadow(0 0 10px 10px, 0.1); }
+.shadow-sm { @include shadow(0 0 5px 5px, 0.1); }
+.shadow-xs { @include shadow(0 0 3px 3px, 0.1); }
+
+
+
+// HEADER
+$header-height-min: 40px;
+#header {
+	@include shadow();
+	position: fixed;
+	height: $header-height-min;
+	line-height: $header-height-min;
+	background: rgba(#000, 0.6);
+	width: 100%;
+	font-size: 0.85em;
+	z-index: 999999999;
+	.contact {
+		color: $darkyellow;
+		.fa-phone {
+			@include round(3px);
+			padding: 5px;
+			color: #FFF;
+			background: $darkyellow;
+			&:hover { color: $darkyellow; background: #FFF; }
+		}
+	}
+	.navigation {
+		@extend %nospace;
+		list-style: none;
+		text-align: center;
+		li {
+			display: inline-block;
+			a {
+				padding: 0px 12px;
+				color: $gray;
+				display: block;
+				&:hover {
+					color: #FFF;
+					background: $lightestblue;
+				}
+			}
+			&.active {
+				background: $blue;
+				a { color: #FFF; &:hover { background: $blue; } }
+			}
+		}
+	}
+	.follow {
+		@extend %nospace;
+		list-style: none;
+		float: right;
+		li {
+			float: left;
+			a {
+				display: block;
+				margin: 0px 2px;
+				font-size: 1.8em;
+				.fa-facebook-square { color: $blue; }
+				.fa-instagram { color: #9b6954; }
+				.fa-twitter-square { color: $lightestblue+40; }
+				.fa-youtube-square { color: #C00; }
+			}
+		}
+	}
+}
+
+
+
+// LOGO
+.logo {
+	text-align: center;
+	padding: 80px 0px 50px 0px;
+	img {
+		max-width: 300px;
+		margin: auto;
+	}
+}
+
+
+
+// NAVIGATION
+$nav-height: 75px;
+.nav {
+	@extend %nospace;
+	@include round(10px 10px 0px 0px);
+	list-style: none;
+	text-align: center;
+	background: $blue;
+	width: 100%;
+	overflow: hidden;
+	height: $nav-height;
+	line-height: $nav-height;
+	li {
+		display: inline-block;
+		a {
+			padding: 0px 30px;
+			color: #FFF;
+			display: block;
+			&:hover {
+				padding: 0px 33px;
+				color: #FFF;
+				background: $lightestblue;
+			}
+		}
+		&.active {
+			background: $darkyellow;
+			a {
+				color: #FFF; &:hover { background: $darkyellow; } }
+		}
+	}
+}
+
+
+
+// SLIDESHOW
+.carousel {
+	.carousel-indicators {
+
+	}
+	.carousel-inner {
+		background: $darkgray;
+		img {
+		}
+	}
+	.carousel-control {
+		background: none;
+	}
+	.left { left: 0; }
+}
+
+
+
+// CONTENT
+$content-spacer: 70px;
+.content-light {
+	@include shadow(0 0 3px 3px, 0.025);
+	background: $lightestgray;
+	padding-top: $content-spacer;
+	padding-bottom: $content-spacer;
+}
+.content-white {
+	@include shadow(0 0 3px 3px, 0.025);
+	background: #FFF;
+	padding-top: $content-spacer;
+	padding-bottom: $content-spacer;
+}
+.content-none {
+	color: $lightestgray;
+	padding-top: $content-spacer + 30px;
+	padding-bottom: $content-spacer + 30px;
+}
+.menu {
+	padding: 0px 30px;
+	text-align: center;
+	.menu-item {
+		cursor: default;
+		.fa {
+			@include round(50%);
+			@include transition(200ms);
+			background: #FFF;
+			border: solid 1px #FFF;
+			width: 80px;
+			height: 80px;
+			line-height: 80px;
+			margin: 0px auto;
+			margin-bottom: 20px;
+		}
+		h5 {
+
+		}
+		p {
+			padding: 10px;
+		}
+		&:hover {
+			.fa {
+				color: #FFF;
+				background: $darkyellow;
+			}
+			h5, p { color: #000; }
+		}
+	}
+}
+
+
+
+// NEWSLETTER
+.newsletter {
+	text-align: center;
+	padding: 0px 30px;
+	.form-control {
+		max-width: 40% !important;
+		min-width: 250px;
+		display: inline-block;
+	}
+	ul {
+		font-size: 1.85em;
+		li {
+			display: inline-block;
+			padding: 0px 2px;
+			a { color: #FFF; display: inline-block; }
+			.fa-facebook-square:hover { color: $blue; }
+			.fa-instagram:hover { color: #9b6954; }
+			.fa-twitter-square:hover { color: $lightestblue+40; }
+			.fa-youtube-square:hover { color: #C00; }
+		}
+	}
+}
+
+
+
+// TESTIMONIAL
+.testimonials blockquote {
+    background: #F0F0F0 none repeat scroll 0 0;
+    border: medium none;
+    display: block;
+    font-size: 1em;
+    line-height: 20px;
+    padding: 20px;
+    position: relative;
+}
+.testimonials blockquote::before {
+    width: 0; 
+    height: 0;
+	right: 0;
+	bottom: 0;
+	content: " "; 
+	display: block; 
+	position: absolute;
+    border-bottom: 20px solid #fff;    
+	border-right: 0 solid transparent;
+	border-left: 15px solid transparent;
+	border-left-style: inset; /*FF fixes*/
+	border-bottom-style: inset; /*FF fixes*/
+}
+.testimonials blockquote::after {
+    width: 0;
+    height: 0;
+    right: 0;
+    bottom: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: $darkyellow transparent transparent transparent;
+}
+.testimonials .carousel-info img {
+	@include round(50%);
+    border: 1px solid $lightergray;
+    height: 100px;
+    width: 100px;
+    padding: 3px;
+}
+.testimonials .carousel-info {
+    overflow: hidden;
+}
+.testimonials .carousel-info img {
+    margin-right: 15px;
+}
+.testimonials .carousel-info span {
+    display: block;
+}
+.testimonials span.testimonials-name {
+    color: #e6400c;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 5px 0 0 0;
+}
+.testimonials span.testimonials-post {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+
+
+
+// BOOTSTRAP OVERRIDE
+.btn-warning {
+	background: $darkyellow;
+	border-color: $darkyellow - 20;
+	&:hover {
+
+	}
+}
+.btn-danger {
+	background: #A00;
+	border-color: #700;
+	&:hover {
+		background: #F00;
+		border-color: #A00;
+	}
+}
+.btn-default {
+	color: #FFF;
+	background: $blue;
+	border-color: $blue - 20;
+	&:hover {
+		color: #FFF;
+		background: $blue + 50;
+		border-color: $blue + 30;
+	}
+}
+
+
+
+
+// MEDIA QUERY
+@media (min-width: 1200px) { // LG
+
+}
+@media (min-width: 992px) and (max-width: 1199px) { // MD
+
+}
+@media (min-width: 768px) and (max-width: 991px) { // SM
+
+}
+@media (max-width: 767px) { // XS
+	
+}
