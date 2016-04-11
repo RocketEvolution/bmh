@@ -574,6 +574,29 @@ $content-spacer: 80px;
 	padding-bottom: 5px;
 	ul li { display: inline-block; }
 }
+.products-thumb {
+	text-align: center;
+	a {
+		color: $darkestgray;
+		&:hover { color: $darkyellow; }
+	}
+	img {
+		padding-top: 15px;
+		margin: auto;
+	}
+	h5 {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	p {
+		color: $lightgray;
+		line-height: 1.5em;
+		font-size: 0.8em;
+	}
+	.btn {
+		margin-bottom: 15px;
+	}
+}
 
 
 
